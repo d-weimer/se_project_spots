@@ -22,10 +22,11 @@
   margin: 0;
   font-weight: 500;
   font-size: 20px;
+  line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 90%;
+  max-width: 353px;
 }
 
 .card__like-button {
@@ -40,7 +41,8 @@
 }
 
 .card__like-button:hover {
-  opacity: 100;
+  cursor: pointer;
+  opacity: 100%;
 }
 
 @media screen and (max-width: 627px) {
@@ -49,6 +51,7 @@
   }
 
   .card__title {
+    max-width: 235px;
     font-size: 16px;
   }
 
