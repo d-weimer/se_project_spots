@@ -1,21 +1,32 @@
-# Project 3: Spots
+# Spots
 
-### Overview  
+An interactive image-sharing site.
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+## Description
+
+"_Spots is an interactive image-sharing site. Users will be able to add and remove photos, like photos from other users, and make minor adjustments to their profile._"
+
+This project is built over several sprints. The primary focus for Stage 2 is implementing repsonsive web design. The design challene involves creating a single layout that adapts smoothly between desktop, tablet, and mobile views. The project is guided by a Figma design, ensuring a polished and professional user interface.
+
+## Tech Stack
+
+- HTML
+- CSS
+- Figma
+- Responsive Design
+- Grid Implementation
+- Media Queries
+- Overflow Handling
+- Hover States
+- Deployment & Documentaion
+
+## Deployment
+
+This webpage is deployed to GitHub Pages.
+
+- Deployent Link: https://d-weimer.github.io/se_project_spots/
+
+## Project Pitch Video
+
+Check out [this video (NOT YET ADDED)](ADD_LINK_HERE), where I describe my
+project and some challenges I faced while building it.
