@@ -1,5 +1,7 @@
 .modal {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s linear;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -16,6 +18,7 @@
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -39,6 +42,13 @@
   border: 0;
   background-image: url(../images/close_icon.svg);
   color: #212121;
+  opacity: 40%;
+}
+
+.modal__close-button:hover {
+  color: #212121;
+  opacity: 100%;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -58,7 +68,8 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
-  color: rgba(33, 33, 33, 0.7);
+  color: #212121;
+  opacity: 70%;
 }
 
 .modal__input {
@@ -71,12 +82,24 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  color: rgba(33, 33, 33, 0.3);
+  color: #212121;
+  opacity: 30%;
   box-sizing: border-box;
 }
 
+.modal__input:hover {
+  border: 1px solid rgba(33, 33, 33, 1);
+  cursor: pointer;
+}
+
 .modal__input::placeholder {
-  color: #2121214d;
+  color: #212121;
+  opacity: 30%;
+}
+
+.modal__input:not(:placeholder-shown) {
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  opacity: 100%;
 }
 
 .modal__submit-button {
