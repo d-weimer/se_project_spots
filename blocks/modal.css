@@ -1,7 +1,7 @@
 .modal {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s linear;
+  transition: visibility 0.5s linear, opacity 0.5s linear;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -24,6 +24,7 @@
 .modal__container {
   max-width: 730px;
   width: 100%;
+  box-sizing: border-box;
   border-radius: 8px;
   background-color: #fff;
   padding: 32px 50px;
@@ -68,8 +69,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
-  color: #212121;
-  opacity: 70%;
+  color: rgba(33, 33, 33, 0.7);
 }
 
 .modal__input {
@@ -83,7 +83,6 @@
   font-weight: 500;
   line-height: 1;
   color: #212121;
-  opacity: 30%;
   box-sizing: border-box;
 }
 
@@ -111,6 +110,11 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  border: none;
+}
+
+.modal__submit-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
