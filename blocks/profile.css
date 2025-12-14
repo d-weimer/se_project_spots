@@ -48,11 +48,13 @@
 .profile__edit-button {
   margin-top: auto;
   display: flex;
+  padding: 0;
   gap: 8px;
   background-color: transparent;
   border: 0;
   color: #212121;
   opacity: 70%;
+  font-weight: 500;
 }
 
 .profile__edit-button:hover {
@@ -72,6 +74,7 @@
   width: 149px;
   height: 52px;
   border-radius: 8px;
+  border: none;
 }
 
 .profile__add-button:hover {
