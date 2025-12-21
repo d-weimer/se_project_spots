@@ -1,8 +1,4 @@
 .modal {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.5s linear, opacity 0.5s linear;
-  background-color: #00000080;
   position: fixed;
   top: 0;
   right: 0;
@@ -14,6 +10,10 @@
   padding: 10px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
+  background-color: #00000080;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear, opacity 0.5s linear;
 }
 
 .modal_is-opened {
@@ -22,27 +22,27 @@
 }
 
 .modal__container {
-  max-width: 730px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 32px 50px;
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 730px;
+  padding: 32px 50px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 .modal__close-button {
   position: absolute;
   top: 32px;
   right: 50px;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
-  background-color: transparent;
-  border: 0;
-  background-image: url(../images/close_icon.svg);
+  width: 40px;
+  height: 40px;
   color: #212121;
+  background-color: transparent;
+  background-image: url(../images/close_icon.svg);
+  border: 0;
   opacity: 40%;
 }
 
@@ -65,24 +65,24 @@
 
 .modal__label {
   margin: 0 0 32px;
+  color: rgba(33, 33, 33, 0.7);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
-  color: rgba(33, 33, 33, 0.7);
 }
 
 .modal__input {
   display: block;
-  margin: 8px 0 0;
+  box-sizing: border-box;
   width: 100%;
+  margin: 8px 0 0;
   padding: 16px 12px;
-  border: 1px solid rgba(33, 33, 33, 0.4);
-  border-radius: 8px;
+  color: #212121;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  color: #212121;
-  box-sizing: border-box;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  border-radius: 8px;
 }
 
 .modal__input:hover {
@@ -100,20 +100,20 @@
 }
 
 .modal__submit-button {
-  background-color: #212121;
-  color: #fcf5e5;
   max-width: 156px;
   height: 52px;
-  border-radius: 8px;
+  color: #fcf5e5;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  background-color: #212121;
   border: none;
+  border-radius: 8px;
 }
 
 .modal__submit-button:hover {
-  cursor: pointer;
   opacity: 80%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
