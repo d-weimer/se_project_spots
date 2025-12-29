@@ -1,5 +1,9 @@
 const initialCards = [
   {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -53,6 +57,13 @@ const cardTemplate = document
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-button"
+);
+const previewImageElement = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__caption");
+
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".card__title");
@@ -73,8 +84,19 @@ function getCardElement(data) {
     cardElement = null;
   });
 
+  cardImageElement.addEventListener("click", () => {
+    previewImageElement.src = data.link;
+    previewImageElement.alt = data.name;
+    previewCaption.textContent = data.name;
+    openModal(previewModal);
+  });
+
   return cardElement;
 }
+
+previewModalCloseButton.addEventListener("click", function () {
+  closeModal(previewModal);
+});
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
