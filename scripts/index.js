@@ -62,6 +62,11 @@ function getCardElement(data) {
   cardImageElement.alt = data.name;
   cardTitleElement.textContent = data.name;
 
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_active");
+  });
+
   return cardElement;
 }
 

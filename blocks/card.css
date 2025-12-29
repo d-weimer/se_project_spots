@@ -45,6 +45,15 @@
   cursor: pointer;
 }
 
+.card__like-button_active {
+  background-image: url(../images/liked_hover_icon.svg);
+  opacity: 100%;
+}
+
+.card__like-button_active:hover {
+  opacity: 40%;
+}
+
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
