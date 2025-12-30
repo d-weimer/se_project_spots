@@ -107,11 +107,11 @@
 
 .modal__input::placeholder {
   color: #212121;
-  opacity: 30%;
+  opacity: 0.3;
 }
 
 .modal__input:not(:placeholder-shown) {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .modal__submit-button {
@@ -127,7 +127,7 @@
 }
 
 .modal__submit-button:hover {
-  opacity: 80%;
+  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -192,7 +192,7 @@
   }
 
   .modal__image {
-    width: unset;
+    max-width: 100%;
   }
 
   .modal__caption {

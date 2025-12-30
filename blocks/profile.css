@@ -38,7 +38,7 @@
   max-width: 420px;
   margin: 0;
   color: #212121;
-  opacity: 70%;
+  opacity: 0.7;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
@@ -54,11 +54,11 @@
   font-weight: 500;
   background-color: transparent;
   border: 0;
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .profile__edit-button:hover {
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
 }
 
