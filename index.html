@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -78,9 +78,12 @@
                 id="profile-name-input"
                 type="text"
                 class="modal__input"
+                minlength="2"
+                maxlength="40"
                 required
                 placeholder="Type your name"
               />
+              <span class="modal__error"></span>
             </label>
             <label for="profile-description-input" class="modal__label"
               >Description
@@ -88,9 +91,12 @@
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
+                minlength="2"
+                maxlength="200"
                 required
                 placeholder="Describe yourself"
               />
+              <span class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
           </form>
@@ -107,11 +113,12 @@
               >Image link
               <input
                 id="card-image-input"
-                type="text"
+                type="url"
                 class="modal__input"
                 required
                 placeholder="Paste a link to a picture"
               />
+              <span class="modal__error"></span>
             </label>
             <label for="card-caption-input" class="modal__label"
               >Caption
@@ -119,9 +126,12 @@
                 id="card-caption-input"
                 type="text"
                 class="modal__input"
+                minlength="2"
+                maxlength="30"
                 required
                 placeholder="Type your caption"
               />
+              <span class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
           </form>

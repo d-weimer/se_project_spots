@@ -13,7 +13,9 @@
   background-color: #00000080;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.5s linear, opacity 0.5s linear;
+  transition:
+    visibility 0.5s linear,
+    opacity 0.5s linear;
 }
 
 .modal_preview {
@@ -79,6 +81,7 @@
 }
 
 .modal__label {
+  display: block;
   margin: 0 0 32px;
   color: rgba(33, 33, 33, 0.7);
   font-size: 16px;
@@ -154,6 +157,16 @@
   line-height: 1.2;
   background-color: #212121;
   border-radius: 8px;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  color: #ff0000;
+  opacity: 0.7;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
 }
 
 @media screen and (max-width: 627px) {
