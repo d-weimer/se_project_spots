@@ -123,6 +123,7 @@ editProfileCloseButton.addEventListener("click", function () {
 });
 
 newPostButton.addEventListener("click", function () {
+  resetValidation(newPostForm, [newPostLinkInput, newPostNameInput]);
   openModal(newPostModal);
 });
 
