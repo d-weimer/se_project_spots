@@ -117,6 +117,10 @@
   opacity: 1;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__submit-button {
   max-width: 156px;
   height: 52px;
@@ -132,6 +136,10 @@
 .modal__submit-button:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.button_inactive {
+  opacity: 0.5;
 }
 
 .modal__image-container {
