@@ -28,5 +28,8 @@ This webpage is deployed to GitHub Pages.
 
 ## Project Pitch Video
 
-Check out [this video](https://drive.google.com/file/d/1b5VufkJmjt3_4omv9LSkQlYXMEQQi11r/view?usp=sharing), where I describe my
-project and some challenges I faced while building it.
+Check out these videos, where I describe my project
+and some challenges I faced while building it:
+
+- [DanielWeimer-ProjectPitch-SpotsStage2](https://drive.google.com/file/d/1b5VufkJmjt3_4omv9LSkQlYXMEQQi11r/view?usp=sharing)
+- [DanielWeimer-ProjectPitch-SpotsStage9](https://drive.google.com/file/d/1PaB7AiOcjw6_C3jlozfvp2fIM-Elz9Ec/view?usp=drive_link)
