@@ -106,27 +106,27 @@ previewModalCloseButton.addEventListener("click", function () {
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  document.addEventListener("keydown", escKeyHandler);
+  document.addEventListener("keydown", closeOnEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", escKeyHandler);
+  document.removeEventListener("keydown", closeOnEscape);
 }
 
-allModals.forEach((openModal) => {
-  openModal.addEventListener("mousedown", (event) => {
-    if (event.target === openModal) {
-      closeModal(openModal);
+allModals.forEach((modal) => {
+  modal.addEventListener("mousedown", (event) => {
+    if (event.target === modal) {
+      closeModal(modal);
     }
   });
 });
 
-const escKeyHandler = (event) => {
+const closeOnEscape = (event) => {
   if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-opened");
-    if (openModal) {
-      closeModal(openModal);
+    const modal = document.querySelector(".modal_is-opened");
+    if (modal) {
+      closeModal(modal);
     }
   }
 };
@@ -147,7 +147,6 @@ editProfileCloseButton.addEventListener("click", function () {
 });
 
 newPostButton.addEventListener("click", function () {
-  resetValidation(newPostForm, [newPostLinkInput, newPostNameInput], settings);
   openModal(newPostModal);
 });
 
@@ -175,6 +174,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   newPostForm.reset();
+  resetValidation(newPostForm, [newPostLinkInput, newPostNameInput], settings);
   disableButton(newPostSubmitButton, settings);
   closeModal(newPostModal);
 }
