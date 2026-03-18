@@ -1,9 +1,10 @@
+import "./index.css";
 import {
   validationConfig,
   enableValidation,
   resetValidation,
   disableButton,
-} from "./validation.js";
+} from "../scripts/validation.js";
 
 const initialCards = [
   {
@@ -184,7 +185,7 @@ function handleAddCardSubmit(evt) {
   resetValidation(
     newPostForm,
     [newPostLinkInput, newPostNameInput],
-    settingvalidationConfigs,
+    validationConfig,
   );
   disableButton(newPostSubmitButton, validationConfig);
   closeModal(newPostModal);

@@ -1,4 +1,6 @@
 .DS_Store
+node_modules/
+dist/
 blocks/desktop.ini
 desktop.ini
 images/desktop.ini
