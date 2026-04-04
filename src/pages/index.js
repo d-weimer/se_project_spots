@@ -189,6 +189,9 @@ newPostCloseButton.addEventListener("click", function () {
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
 
+  const initialButtonText = editProfileSubmitButton.textContent;
+  editProfileSubmitButton.textContent = "Saving...";
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -200,7 +203,10 @@ function handleEditProfileSubmit(evt) {
       disableButton(editProfileSubmitButton, validationConfig);
       closeModal(editProfileModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      editProfileSubmitButton.textContent = initialButtonText;
+    });
 }
 
 function handleAddCardSubmit(evt) {
@@ -211,15 +217,15 @@ function handleAddCardSubmit(evt) {
     link: newPostLinkInput.value,
   };
 
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  const initialButtonText = newPostSubmitButton.textContent;
+  newPostSubmitButton.textContent = "Saving...";
 
   api
-    .addNewCard({
-      name: newPostNameInput.value,
-      link: newPostLinkInput.value,
-    })
+    .addNewCard(inputValues)
     .then((data) => {
+      const cardElement = getCardElement(data);
+      cardsList.prepend(cardElement);
+
       newPostForm.reset();
       resetValidation(
         newPostForm,
@@ -229,7 +235,10 @@ function handleAddCardSubmit(evt) {
       disableButton(newPostSubmitButton, validationConfig);
       closeModal(newPostModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      newPostSubmitButton.textContent = initialButtonText;
+    });
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
