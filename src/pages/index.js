@@ -48,11 +48,15 @@ const api = new Api({
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, userData]) => {
     cards.forEach(function (item) {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
     });
+
+    profileNameElement.textContent = userData.name;
+    profileDescriptionElement.textContent = userData.about;
+    profileAvatarElement.src = userData.avatar;
   })
   .catch(console.error);
 
@@ -81,6 +85,7 @@ const newPostSubmitButton = newPostForm.querySelector(".modal__submit-button");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostNameInput = newPostModal.querySelector("#card-caption-input");
 
+const profileAvatarElement = document.querySelector(".profile__avatar");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
@@ -183,10 +188,18 @@ newPostCloseButton.addEventListener("click", function () {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = editProfileNameInput.value;
-  profileDescriptionElement.textContent = editProfileDescriptionInput.value;
-  disableButton(editProfileSubmitButton, validationConfig);
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((data) => {
+      profileNameElement.textContent = data.name;
+      profileDescriptionElement.textContent = data.about;
+      disableButton(editProfileSubmitButton, validationConfig);
+      closeModal(editProfileModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {
