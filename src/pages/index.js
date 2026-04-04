@@ -188,6 +188,7 @@ newPostCloseButton.addEventListener("click", function () {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -213,14 +214,22 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  newPostForm.reset();
-  resetValidation(
-    newPostForm,
-    [newPostLinkInput, newPostNameInput],
-    validationConfig,
-  );
-  disableButton(newPostSubmitButton, validationConfig);
-  closeModal(newPostModal);
+  api
+    .addNewCard({
+      name: newPostNameInput.value,
+      link: newPostLinkInput.value,
+    })
+    .then((data) => {
+      newPostForm.reset();
+      resetValidation(
+        newPostForm,
+        [newPostLinkInput, newPostNameInput],
+        validationConfig,
+      );
+      disableButton(newPostSubmitButton, validationConfig);
+      closeModal(newPostModal);
+    })
+    .catch(console.error);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
