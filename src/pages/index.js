@@ -5,7 +5,7 @@ import {
   resetValidation,
   disableButton,
 } from "../scripts/validation.js";
-import Api from "../scripts/Api.js";
+import Api from "../utils/Api.js";
 
 // const initialCards = [
 //   {
@@ -46,12 +46,15 @@ const api = new Api({
   },
 });
 
-api.getInitialCards().then((cards) => {
-  cards.forEach(function (item) {
-    const cardElement = getCardElement(item);
-    cardsList.append(cardElement);
-  });
-});
+api
+  .getInitialCards()
+  .then((cards) => {
+    cards.forEach(function (item) {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+  })
+  .catch(console.error);
 
 const allModals = document.querySelectorAll(".modal");
 const editProfileModal = document.querySelector("#edit-profile-modal");
