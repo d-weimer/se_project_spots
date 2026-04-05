@@ -110,11 +110,16 @@ const editAvatarSubmitButton = editAvatarModal.querySelector(
 // Delete Cards
 const deleteCardModal = document.querySelector("#delete-modal");
 const deleteCardForm = deleteCardModal.querySelector(".modal__form");
+const deleteCardSubmitButton = deleteCardModal.querySelector(
+  ".modal__submit-button-delete-card",
+);
 
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
+
+let selectedCard, selectedCardId;
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseButton = previewModal.querySelector(
@@ -138,7 +143,9 @@ function getCardElement(data) {
   });
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  cardDeleteButton.addEventListener("click", handleDeleteCard);
+  cardDeleteButton.addEventListener("click", (evt) =>
+    handleDeleteCard(cardElement, data._id),
+  );
 
   cardImageElement.addEventListener("click", () => {
     previewImageElement.src = data.link;
@@ -286,12 +293,33 @@ function handleEditAvatarSubmit(evt) {
     });
 }
 
-function handleDeleteCard(evt) {
+function handleDeleteCard(cardElement, cardId) {
+  selectedCard = cardElement;
+  selectedCardId = cardId;
   openModal(deleteCardModal);
+}
+
+function handleDeleteSubmit(evt) {
+  evt.preventDefault();
+
+  const initialButtonText = deleteCardSubmitButton.textContent;
+  deleteCardSubmitButton.textContent = "Deleting...";
+
+  api
+    .deleteCard(selectedCardId)
+    .then(() => {
+      selectedCard.remove();
+      closeModal(deleteCardModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      deleteCardSubmitButton.textContent = initialButtonText;
+    });
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleAddCardSubmit);
 editAvatarForm.addEventListener("submit", handleEditAvatarSubmit);
+deleteCardForm.addEventListener("submit", handleDeleteSubmit);
 
 enableValidation(validationConfig);
