@@ -132,18 +132,22 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
 
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
   cardTitleElement.textContent = data.name;
 
-  const cardLikeButton = cardElement.querySelector(".card__like-button");
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_active");
-  });
+  if (data.isLiked) {
+    cardLikeButton.classList.add("card__like-button_active");
+  }
+
+  cardLikeButton.addEventListener("click", (evt) =>
+    handleLikeState(evt, data._id),
+  );
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  cardDeleteButton.addEventListener("click", (evt) =>
+  cardDeleteButton.addEventListener("click", () =>
     handleDeleteCard(cardElement, data._id),
   );
 
@@ -314,6 +318,19 @@ function handleDeleteSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       deleteCardSubmitButton.textContent = initialButtonText;
+    });
+}
+
+function handleLikeState(evt, id) {
+  const isLiked = evt.target.classList.contains("card__like-button_active");
+
+  api
+    .changeLikeState(id, isLiked)
+    .then(() => {
+      evt.target.classList.toggle("card__like-button_active");
+    })
+    .catch((err) => {
+      console.error(err);
     });
 }
 
