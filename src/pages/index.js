@@ -304,7 +304,6 @@ function handleEditAvatarSubmit(evt) {
       profileAvatarElement.src = data.avatar;
 
       editAvatarForm.reset();
-      resetValidation(editAvatarForm, editAvatarLinkInput, validationConfig);
       disableButton(editAvatarSubmitButton, validationConfig);
       closeModal(editAvatarModal);
     })
