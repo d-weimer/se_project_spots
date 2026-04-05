@@ -37,6 +37,11 @@
   border-radius: 8px;
 }
 
+#delete-modal .modal__container {
+  max-width: 630px;
+  text-align: center;
+}
+
 .modal__close-button {
   position: absolute;
   top: 32px;
@@ -56,7 +61,7 @@
   top: 0;
   right: -52.5px;
   background-image: url(../images/close_preview_icon.svg);
-  opacity: 100%;
+  opacity: 1;
 }
 
 .modal__close-button:hover {
@@ -73,6 +78,10 @@
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
+}
+
+.modal__title-delete-card {
+  font-size: 24px;
 }
 
 .modal__form {
@@ -121,6 +130,13 @@
   border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
+.modal__delete-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
 .modal__submit-button {
   max-width: 156px;
   height: 52px;
@@ -133,9 +149,39 @@
   border-radius: 8px;
 }
 
+.modal__submit-button-delete-card {
+  background-color: #ff6565;
+  color: white;
+  border: none;
+  width: 100%;
+  max-width: 156px;
+  height: 52px;
+}
+
+.modal__submit-button-delete-card-cancel {
+  background-color: #ffffff;
+  color: #212121;
+  border: 1px solid #212121;
+  width: 100%;
+  max-width: 156px;
+  height: 52px;
+}
+
 .modal__submit-button:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__submit-button-delete-card:hover {
+  background-color: #ff3333;
+  color: #212121;
+  opacity: 1;
+}
+
+.modal__submit-button-delete-card-cancel:hover {
+  background-color: #212121;
+  color: #fff;
+  opacity: 1;
 }
 
 .button_inactive {
@@ -188,11 +234,25 @@
     padding: 12px 12px;
   }
 
+  #delete-modal .modal__container {
+    max-width: 320px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .modal__header {
     display: flex;
     align-items: center;
     height: 40px;
     margin: 0 0 24px;
+  }
+
+  .modal__header-delete-card {
+    display: block;
+    margin-bottom: 32px;
+    width: 100%;
   }
 
   .modal__title {
@@ -211,8 +271,25 @@
     right: 0;
   }
 
+  .modal__delete-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .modal__submit-button {
     max-width: 100%;
+  }
+
+  .modal__submit-button-delete-card,
+  .modal__submit-button-delete-card-cancel {
+    width: 156px;
+    height: 52px;
+  }
+
+  .modal__submit-button-delete-card-cancel:hover {
+    background-color: #212121;
+    color: #fff;
+    opacity: 1;
   }
 
   .modal__input {

@@ -61,6 +61,8 @@ api
   .catch(console.error);
 
 const allModals = document.querySelectorAll(".modal");
+
+// Edit Profile
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editProfileCloseButton = editProfileModal.querySelector(
@@ -77,6 +79,7 @@ const editProfileSubmitButton = editProfileModal.querySelector(
   ".modal__submit-button",
 );
 
+// New Post
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
@@ -85,6 +88,7 @@ const newPostSubmitButton = newPostForm.querySelector(".modal__submit-button");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostNameInput = newPostModal.querySelector("#card-caption-input");
 
+// Edit Avatar
 const profileAvatarElement = document.querySelector(".profile__avatar");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
@@ -102,6 +106,10 @@ const editAvatarLinkInput = editAvatarModal.querySelector(
 const editAvatarSubmitButton = editAvatarModal.querySelector(
   ".modal__submit-button",
 );
+
+// Delete Cards
+const deleteCardModal = document.querySelector("#delete-modal");
+const deleteCardForm = deleteCardModal.querySelector(".modal__form");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -130,9 +138,7 @@ function getCardElement(data) {
   });
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  cardDeleteButton.addEventListener("click", handleDeleteCard);
 
   cardImageElement.addEventListener("click", () => {
     previewImageElement.src = data.link;
@@ -278,6 +284,10 @@ function handleEditAvatarSubmit(evt) {
     .finally(() => {
       editAvatarSubmitButton.textContent = initialButtonText;
     });
+}
+
+function handleDeleteCard(evt) {
+  openModal(deleteCardModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);

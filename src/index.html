@@ -154,7 +154,6 @@
         </div>
       </div>
     </div>
-    // Finish updating Edit Avatar modal
     <div class="modal" id="edit-avatar-modal">
       <div class="modal__container">
         <div class="modal__header">
@@ -176,6 +175,33 @@
           </label>
           <button type="submit" class="modal__submit-button">Save</button>
         </form>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <div class="modal__header modal__header-delete-card">
+          <button
+            type="button"
+            class="modal__close-button modal__close-button_preview"
+          ></button>
+          <h2 class="modal__title modal__title-delete-card">
+            Are you sure you want to delete this image?
+          </h2>
+        </div>
+        <div class="modal__delete-buttons">
+          <button
+            type="submit"
+            class="modal__submit-button modal__submit-button-delete-card"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="modal__submit-button modal__submit-button-delete-card-cancel"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </body>
