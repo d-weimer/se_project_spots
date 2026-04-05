@@ -25,14 +25,19 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="Bessie Coleman's Avatar"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-button">
+              <img
+                src="<%=require('./images/edit_icon-white.svg')%>"
+                alt="Edit icon"
+                class="profile__edit-icon"
+              />
+            </button>
+            <img class="profile__avatar" />
+          </div>
           <div class="profile__column">
-            <h1 class="profile__name">Bessie Coleman</h1>
-            <p class="profile__description">Civil Aviator</p>
+            <h1 class="profile__name"></h1>
+            <p class="profile__description"></p>
             <button type="button" class="profile__edit-button">
               <img
                 src="<%=require('./images/edit_icon.svg')%>"
@@ -147,6 +152,30 @@
           <img src="#" alt="" class="modal__image" />
           <p class="modal__caption"></p>
         </div>
+      </div>
+    </div>
+    // Finish updating Edit Avatar modal
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <div class="modal__header">
+          <button type="button" class="modal__close-button"></button>
+          <h2 class="modal__title">Edit profile avatar</h2>
+        </div>
+        <form id="edit-avatar-form" class="modal__form" novalidate>
+          <label for="profile-avatar-input" class="modal__label"
+            >Profile Picture
+            <input
+              id="profile-avatar-input"
+              type="text"
+              class="modal__input"
+              name="avatar"
+              required
+              placeholder="Paste the link to an image"
+            />
+            <span id="profile-avatar-input-error"></span>
+          </label>
+          <button type="submit" class="modal__submit-button">Save</button>
+        </form>
       </div>
     </div>
   </body>

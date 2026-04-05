@@ -90,6 +90,18 @@ const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
+const editAvatarModal = document.querySelector("#edit-avatar-modal");
+const editAvatarButton = document.querySelector(".profile__avatar-button");
+const editAvatarCloseButton = editAvatarModal.querySelector(
+  ".modal__close-button",
+);
+const editAvatarForm = editAvatarModal.querySelector(".modal__form");
+const editAvatarLinkInput = editAvatarModal.querySelector(
+  "#profile-avatar-input",
+);
+const editAvatarSubmitButton = editAvatarModal.querySelector(
+  ".modal__submit-button",
+);
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -186,6 +198,14 @@ newPostCloseButton.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
+editAvatarButton.addEventListener("click", function () {
+  openModal(editAvatarModal);
+});
+
+editAvatarCloseButton.addEventListener("click", function () {
+  closeModal(editAvatarModal);
+});
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
 
@@ -241,7 +261,27 @@ function handleAddCardSubmit(evt) {
     });
 }
 
+function handleEditAvatarSubmit(evt) {
+  evt.preventDefault();
+
+  const initialButtonText = editAvatarSubmitButton.textContent;
+  editAvatarSubmitButton.textContent = "Saving...";
+
+  api
+    .editAvatar(editAvatarLinkInput.value)
+    .then((data) => {
+      profileAvatarElement.src = data.avatar;
+      disableButton(editAvatarSubmitButton, validationConfig);
+      closeModal(editAvatarModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      editAvatarSubmitButton.textContent = initialButtonText;
+    });
+}
+
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleAddCardSubmit);
+editAvatarForm.addEventListener("submit", handleEditAvatarSubmit);
 
 enableValidation(validationConfig);

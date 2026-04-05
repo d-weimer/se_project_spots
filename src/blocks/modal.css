@@ -10,7 +10,7 @@
   padding: 10px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  background-color: #00000080;
+  background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
   transition:
@@ -178,6 +178,12 @@
 }
 
 @media screen and (max-width: 627px) {
+  .modal {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
   .modal__container {
     padding: 12px 12px;
   }
@@ -192,6 +198,7 @@
   .modal__title {
     margin: 0;
     font-size: 20px;
+    line-height: 1.5;
   }
 
   .modal__close-button {
