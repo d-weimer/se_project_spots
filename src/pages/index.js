@@ -110,8 +110,14 @@ const editAvatarSubmitButton = editAvatarModal.querySelector(
 // Delete Cards
 const deleteCardModal = document.querySelector("#delete-modal");
 const deleteCardForm = deleteCardModal.querySelector(".modal__form");
+const deleteCardCloseButton = deleteCardModal.querySelector(
+  ".modal__close-button",
+);
 const deleteCardSubmitButton = deleteCardModal.querySelector(
   ".modal__submit-button-delete-card",
+);
+const deleteCardCancelButton = deleteCardModal.querySelector(
+  ".modal__submit-button-delete-card-cancel",
 );
 
 const cardTemplate = document
@@ -223,6 +229,14 @@ editAvatarCloseButton.addEventListener("click", function () {
   closeModal(editAvatarModal);
 });
 
+deleteCardCloseButton.addEventListener("click", function () {
+  closeModal(deleteCardModal);
+});
+
+deleteCardCancelButton.addEventListener("click", function () {
+  closeModal(deleteCardModal);
+});
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
 
@@ -288,6 +302,9 @@ function handleEditAvatarSubmit(evt) {
     .editAvatar(editAvatarLinkInput.value)
     .then((data) => {
       profileAvatarElement.src = data.avatar;
+
+      editAvatarForm.reset();
+      resetValidation(editAvatarForm, editAvatarLinkInput, validationConfig);
       disableButton(editAvatarSubmitButton, validationConfig);
       closeModal(editAvatarModal);
     })
